@@ -97,6 +97,7 @@ public class MenjacnicaGUI {
 	
 	private void initialize() {
 		frmMenjacnica = new JFrame();
+		frmMenjacnica.setIconImage(Toolkit.getDefaultToolkit().getImage(MenjacnicaGUI.class.getResource("/com/sun/javafx/scene/control/skin/caspian/left-btn-selected.png")));
 		frmMenjacnica.addWindowListener(new WindowAdapter() {
 			@Override
 			public void windowClosing(WindowEvent arg0) {
@@ -283,6 +284,12 @@ public class MenjacnicaGUI {
 	private JButton getBtnIzvrsiZamenu() {
 		if (btnIzvrsiZamenu == null) {
 			btnIzvrsiZamenu = new JButton("Izvrsi zamenu");
+			btnIzvrsiZamenu.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					IzvrsiZamenuGUI izg = new IzvrsiZamenuGUI(glavniProzor);
+					izg.setVisible(true);
+				}
+			});
 			btnIzvrsiZamenu.setHorizontalAlignment(SwingConstants.LEFT);
 			btnIzvrsiZamenu.setPreferredSize(new Dimension(115, 23));
 		}
@@ -295,7 +302,7 @@ public class MenjacnicaGUI {
 		return txtStatus;
 	}
 	public void ispisiNaKraj(String s) {
-		txtStatus.setText(txtStatus.getText()+s);
+		txtStatus.setText(txtStatus.getText()+"\n"+s);
 	}
 	public void ispisi(String s) {
 		txtStatus.setText(s);
@@ -380,12 +387,24 @@ public class MenjacnicaGUI {
 	private JMenuItem getMntmObrisiKurs() {
 		if (mntmObrisiKurs == null) {
 			mntmObrisiKurs = new JMenuItem("Obrisi kurs");
+			mntmObrisiKurs.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					ObrisiKursGUI okg = new ObrisiKursGUI(glavniProzor);
+					okg.setVisible(true);
+				}
+			});
 		}
 		return mntmObrisiKurs;
 	}
 	private JMenuItem getMntmIzvrsiZamenu() {
 		if (mntmIzvrsiZamenu == null) {
 			mntmIzvrsiZamenu = new JMenuItem("Izvrsi zamenu");
+			mntmIzvrsiZamenu.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					IzvrsiZamenuGUI izg = new IzvrsiZamenuGUI(glavniProzor);
+					izg.setVisible(true);
+				}
+			});
 		}
 		return mntmIzvrsiZamenu;
 	}
